@@ -1,0 +1,152 @@
+\documentclass{beamer}
+%\documentclass[handout]{beamer}
+\usepackage{pgfpages}
+\mode<handout>{
+  \pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm,landscape]
+  \setbeamercolor{background canvas}{bg=black!5}
+}
+\setbeamerfont{page number in head/foot}{size=\large}
+\setbeamertemplate{footline}[frame number]
+
+
+\mode<presentation>
+{
+%  \usetheme{Warsaw} % Plan on top
+%  \usetheme{Dresden} % Plan with bullets on top
+  \usetheme{Goettingen} % Plan on the right column
+  \setbeamercovered{transparent}
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{jeremy}
+
+\title[Fine Grained Analysis]
+{Fine Grained Analysis \\ of Algorithms and Data Structures}
+
+\subtitle{An\'alisis fino de algoritmos y estructuras de datos} 
+
+\author{J{\'e}r{\'e}my Barbay}
+\institute[DCC, UChile]
+{\url{jeremy@barbay.cl}}
+
+\date[Quito]{[2016-09-26 Mon]--[2016-09-30 Fri]@Quito}
+
+\subject{Talks}
+
+\pgfdeclareimage{logoMilenio}{logoMilenio.pdf}
+\logo{\pgfuseimage{logoMilenio}}
+\logo{\includegraphics[width=3cm]{logoMilenio}}
+
+\begin{document}
+
+\logo{\includegraphics[width=3cm]{logoMilenio}}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+\includegraphics[width=3cm]{logoMilenio}
+\vfill
+\begin{abstract} \tiny The adaptive analysis of algorithms remedy to the pessimism of the standard worst-case analysis of algorithms by considering other parameters than the input size, in order to better capture the difficulty of the input instance. Developped since the 70's, such an analysis technique has become even more relevant nowadays as the size of data explodes, and with it the gap between the worst case performance and the typical one. We give an introduction of this technique by revisiting classical problems through this analysis, discuss the relations between this analysis technique with output sensitivity and parameterized complexity, and present some preliminary work on problems for which such an analysis seems promising, such as Searching in sorted arrays, Sorting, computing the Convex Hull, computing Optimal Prefix Free Codes (Huffman), etc...
+\end{abstract}
+\vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outline (1/2)}
+\begin{itemize}
+\item {Dia 1: Desde la Torre de Hanoi a pilas de discos}
+\label{sec-1}
+\begin{enumerate}
+\item Peor caso por \(n\) fijado
+\item Peor caso por \(n,\delta\) fijado
+\item Peor caso por \(\delta,n_1,\ldots,n_\delta\) fijado
+\item Plan of the rest of the course
+\item Assignment: Selenite Towers
+\end{enumerate}
+\vfill
+\item {Dia 2: Operaciones sobre Conjuntos Ordenados}
+\label{sec-2}
+\begin{enumerate}
+\item Binary Search -> Doubling Search
+\item Binary Encoding -> Gamma Coding
+\item (2,4) Search Trees -> Finger Search Tree
+\item Splay Arboles
+\item Sorted Merge -> Adaptive Sorted Merge
+\item Sorted Intersection -> Adaptive Insertion
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outline (2/2)}
+\begin{itemize}
+\item {Dia 3: Ordenamiento}
+\label{sec-3}
+\begin{enumerate}
+\item Insertion Sort -> Local Insertion Sort
+\item Heap -> Adaptive Priority queues
+\item Heap sort -> Smooth Sort
+\item Sorted Merge -> Adaptive Sorted Merge
+\item Merge Sort -> Adaptive MergeSort
+\end{enumerate}
+\vfill
+
+\item {Dia 4: Geometria Computacional Adaptativa}
+\label{sec-4}
+\begin{enumerate}
+\item Convex Hull -> Output Sensitive Convex Hull
+\item Dominating Set -> Instance Optimal DS
+\item MCS Trees -> MCS Splay Trees
+\item Optimal Boxes -> Adaptive Optimal Boxes
+\end{enumerate}
+\vfill
+\item {Dia 5: Otros Problemas de interes y Wrapup}
+\label{sec-5}
+\begin{enumerate}
+\item Alternation of Optimal Prefix Free Codes (Huffman)
+\item Swap Insert Edit Distance
+\item Synergy Sorting
+\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Pedagogical Objectives}
+After taking this course, the student should be able to
+\hfill
+\begin{itemize}
+\item mention some \textbf{examples of fine grained analysis} of some computational complexity;
+\item \textbf{identify the potential} of a fine grained analysis in a problem; and
+\item \textbf{perform a fine grained analysis} of the complexity of some simple problems.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Similar work by the same Author}
+\nocite{2014-Algorithmica-EfficientFullyCompressedSequenceRepresentations-BarbayClaudeGagieNavarroNekrich}
+\nocite{2013-TCS-CompressedRepresentationsOfPermutationsAndApplications-BarbayNavarro}
+\nocite{2013-IanFest-FromTimeToSpace-Barbay}
+\nocite{2009-FOCS-InstanceOptimalGeometricAlgorithms-AfshaniBarbayChan}
+\nocite{2013-IC-CompactBinaryRelationRepresentationsWithRichFunctionality-BarbayClaudeNavarro}
+\nocite{2013-CCCG-MaximumWeightPlanarBoxesInON2TimeAndBetter-BarbayChanNavarroPerezLantero}
+\nocite{2012-Algoritmica-SuccinctRepresentationOfLabeledGraphs-BarbayCastelliAleardiHeMunro}
+\tiny
+\bibliographystyle{apalike}
+\bibliography{/home/jbarbay/EverGoing/Bibliography/bibliographyDatabaseJeremyBarbay,/home/jbarbay/EverGoing/Publications/publications-ExportedFromOrgmode-Barbay}
+\end{frame}
+
+
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
