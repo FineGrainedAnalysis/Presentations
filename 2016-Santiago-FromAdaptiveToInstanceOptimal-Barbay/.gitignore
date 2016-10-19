@@ -1,0 +1,13 @@
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+/auto/
+*~
+/points.fig.bak
+/2016-Ljubljana-FromFineGrainedAnalysisToInstanceOptimality-Barbay.pdf
+/2016-Ljubljana-FromFineGrainedAnalysisToInstanceOptimality-Barbay.bbl
+/2016-Ljubljana-FromFineGrainedAnalysisToInstanceOptimality-Barbay.blg

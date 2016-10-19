@@ -1,0 +1,82 @@
+\documentclass{beamer}
+%\documentclass[handout,numbers]{beamer}
+%\documentclass[handout,draft]{beamer}
+%\includeonlyframes{current}
+\usepackage{pgfpages}
+\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+\usepackage{versions}
+\includeversion{TOKEEPSECRET}
+\excludeversion{INUTILE}
+\newcommand{\OPT}{\mbox{\rm OPT}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Ss}{\mathcal{S}}
+
+\mode<handout>{
+  \setbeameroption{show notes}
+  \pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm,landscape]
+  % instead of   \pgfpagelayout{4 on 1}[border shrink=5mm,landscape]
+  \setbeamercolor{background canvas}{bg=black!5}
+}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber} 
+  \AtBeginSection[]
+  {
+    \begin{frame}<beamer>
+      \frametitle{Outline}
+      \tableofcontents[currentsection]
+    \end{frame}
+  }
+}
+
+
+\title[Instance Optimality] 
+{From Fine Grained Analysis to Instance Optimality}
+\author{J{\'e}r{\'e}my Barbay}
+
+\begin{INUTILE}
+\begin{abstract}
+Surprisingly enough, an algorithm exists for computing 2-d or 3-d convex hulls that is optimal for every point set [FOCS 2009], in the worst case over input order: this is called "Input Order Oblivious Instance Optimality". I will describe the history and intuition behind this result, and which future similar results can be expected.
+\end{abstract}
+\end{INUTILE}
+\institute
+{
+  jeremy@barbay.cl
+}
+
+\date{[2016-10-19 Wed 17:00-17:30]@Santiago}
+\subject{Talks}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+\input{instanceOptimality.tex}
+
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
