@@ -26,7 +26,7 @@
 \title[Fine Grained Analysis]
 {Fine Grained Analysis \\ of Algorithms and Data Structures}
 
-\subtitle{An\'alisis fino de algoritmos y estructuras de datos} 
+\subtitle{(An\'alisis fino para algoritmos y  estructuras de datos)} 
 
 \author{J{\'e}r{\'e}my Barbay}
 \institute[DCC, UChile]
@@ -36,13 +36,28 @@
 
 \subject{Talks}
 
-\pgfdeclareimage{logoMilenio}{logoMilenio.pdf}
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+\pgfdeclareimage{logoMilenio}{logoMilenio}
 \logo{\pgfuseimage{logoMilenio}}
-\logo{\includegraphics[width=3cm]{logoMilenio}}
+% \logo{\includegraphics[width=3cm]{logoMilenio}}
 
 \begin{document}
 
-\logo{\includegraphics[width=3cm]{logoMilenio}}
+% \logo{\includegraphics[width=3cm]{logoMilenio}}
 \begin{frame}
   \titlepage
 \end{frame}
@@ -53,66 +68,6 @@
 \begin{abstract} \tiny The adaptive analysis of algorithms remedy to the pessimism of the standard worst-case analysis of algorithms by considering other parameters than the input size, in order to better capture the difficulty of the input instance. Developped since the 70's, such an analysis technique has become even more relevant nowadays as the size of data explodes, and with it the gap between the worst case performance and the typical one. We give an introduction of this technique by revisiting classical problems through this analysis, discuss the relations between this analysis technique with output sensitivity and parameterized complexity, and present some preliminary work on problems for which such an analysis seems promising, such as Searching in sorted arrays, Sorting, computing the Convex Hull, computing Optimal Prefix Free Codes (Huffman), etc...
 \end{abstract}
 \vfill
-\end{frame}
-
-\begin{frame}
-  \frametitle{Outline (1/2)}
-\begin{itemize}
-\item {Dia 1: Desde la Torre de Hanoi a pilas de discos}
-\label{sec-1}
-\begin{enumerate}
-\item Peor caso por \(n\) fijado
-\item Peor caso por \(n,\delta\) fijado
-\item Peor caso por \(\delta,n_1,\ldots,n_\delta\) fijado
-\item Plan of the rest of the course
-\item Assignment: Selenite Towers
-\end{enumerate}
-\vfill
-\item {Dia 2: Operaciones sobre Conjuntos Ordenados}
-\label{sec-2}
-\begin{enumerate}
-\item Binary Search -> Doubling Search
-\item Binary Encoding -> Gamma Coding
-\item (2,4) Search Trees -> Finger Search Tree
-\item Splay Arboles
-\item Sorted Merge -> Adaptive Sorted Merge
-\item Sorted Intersection -> Adaptive Insertion
-\end{enumerate}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Outline (2/2)}
-\begin{itemize}
-\item {Dia 3: Ordenamiento}
-\label{sec-3}
-\begin{enumerate}
-\item Insertion Sort -> Local Insertion Sort
-\item Heap -> Adaptive Priority queues
-\item Heap sort -> Smooth Sort
-\item Sorted Merge -> Adaptive Sorted Merge
-\item Merge Sort -> Adaptive MergeSort
-\end{enumerate}
-\vfill
-
-\item {Dia 4: Geometria Computacional Adaptativa}
-\label{sec-4}
-\begin{enumerate}
-\item Convex Hull -> Output Sensitive Convex Hull
-\item Dominating Set -> Instance Optimal DS
-\item MCS Trees -> MCS Splay Trees
-\item Optimal Boxes -> Adaptive Optimal Boxes
-\end{enumerate}
-\vfill
-\item {Dia 5: Otros Problemas de interes y Wrapup}
-\label{sec-5}
-\begin{enumerate}
-\item Alternation of Optimal Prefix Free Codes (Huffman)
-\item Swap Insert Edit Distance
-\item Synergy Sorting
-\end{enumerate}
-\end{itemize}
-
 \end{frame}
 
 \begin{frame}
@@ -127,6 +82,129 @@ After taking this course, the student should be able to
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+
+\section{A Finer Analysis}
+
+\subsection{Hanoi Tower}
+\label{sec-1-1}
+\begin{frame}
+\begin{enumerate}
+\item $\square$ Peor caso por \(n\) fijado
+\item $\square$ Peor caso por \(n,\delta\) fijado
+\item $\square$ Peor caso por \(\delta,n_1,\ldots,n_\delta\) fijado
+  \end{enumerate}
+  \end{frame}
+
+\section{Computational Geometry}
+\label{sec-1}
+
+
+\subsection{Instance Optimal Convex Hull}
+\label{sec-1-2}
+
+\begin{frame}
+\begin{enumerate}
+\item $\square$ Repaso de Covertura Convexa
+  \begin{itemize}
+\item Graham's scan \(O(n \lg n)\) \cite{1972-IPL-AnEfficientAlgorithmForDeterminingTheConvexHullOfAFinitePlanarSet-Graham}
+\item Gift Wrapping \(O(nh)\)
+\item Chan \(O(n\lg h)\) \cite{1996-DCG-OutputSensitiveResultsOnConvexHullsExtremePointsAndRelatedProblems-Chan}
+  \end{itemize}
+\item $\square$ Kirkpatrick and Seidel \cite{1986-JCom-TheUltimatePlanarConvexHullAlgorithm-KirkpatrickSeidel}
+  \begin{itemize}
+\item Median \(O(n)\)
+\item Dominating Edge \(O(n)\)
+\item Convex Hull O(n\(\lg\) h)
+  \end{itemize}
+\item $\square$ Afshani et al \cite{2009-FOCS-InstanceOptimalGeometricAlgorithms-AfshaniBarbayChan}
+  \begin{itemize}
+\item Certificate
+\item Lower Bound
+\item Upper Bound
+  \end{itemize}
+  \end{enumerate}
+  \end{frame}
+
+\subsection{Other Examples in Computational Geometry}
+\label{sec-1-3}
+\begin{frame}
+\begin{enumerate}
+\item $\square$ Dominating Set -> Instance Optimal DS
+\item $\square$ MCS Trees -> MCS Splay Trees
+\item $\square$ Optimal Boxes -> Adaptive Optimal Boxes
+  \end{enumerate}
+  \end{frame}
+
+\subsection{Tareas}
+\label{sec-1-4}
+\begin{frame}
+\begin{enumerate}
+\item $\square$ Analize disk pile problem in the worst case for \(n\) and \(\min_i n_i\) fixed.
+\item $\square$ Analize disk pile problem in the worst case for \(n\) and \(\max_i n_i\) fixed.
+\item $\square$ Analize variant of hanoi tower where the disk is removed and inserted in the middle \cite{2016-FUN-SeleniteTowersMoveFasterThanHanoiTowers-Barbay}
+  \end{enumerate}
+  \end{frame}
+
+\section{Searching}
+\label{sec-2}
+\begin{frame}
+\begin{enumerate}
+\item Binary Search -> Doubling Search
+\item Binary Encoding -> Gamma Coding
+\item (2,4) Search Trees -> Finger Search Tree
+\item Splay Arboles
+\item Sorted Merge -> Adaptive Sorted Merge
+\item Sorted Intersection -> Adaptive Insertion
+  \end{enumerate}
+  \end{frame}
+
+\section{Input Order: Sorting}
+\label{sec-3}
+\begin{frame}
+\begin{enumerate}
+\item Insertion Sort -> Local Insertion Sort
+\item Heap -> Adaptive Priority queues
+\item Heap sort -> Smooth Sort
+\item Sorted Merge -> Adaptive Sorted Merge
+\item Merge Sort -> Adaptive MergeSort
+  \end{enumerate}
+  \end{frame}
+
+\section{Other Problems and Wrapup}
+\label{sec-4}
+
+\begin{frame}
+\begin{enumerate}
+\item Synergy Sorting \cite{2016-ARXIV-SynergisticSortingAndDeferredDataStructuresOnMultiSets-BarbayOchoaRao}
+  \begin{itemize}
+\item Input Order
+  \begin{description}
+\item[{Local}] Runs
+\item[{Global}] Pivot Positions
+  \end{description}
+\item[{Input Structure}] Repetitions
+\item taking optimally advantage of both at the same time
+  \end{itemize}
+\item Optimal Prefix Free Codes (Huffman's algorithm)
+  \begin{itemize}
+\item \$O(n\(\lg \alpha\))\(\subset\) O(n\(\lg\) n) \cite{2016-CPM-OptimalPrefixFreeCodesWithPartialSorting-Barbay}
+\item OPEN PROBLEM: bounded length Prefix Free Codes
+\item OPEN PROBLEM: order restricted optimal prefix free codes (Hu Tucker)
+  \end{itemize}
+\item Edit Distance
+  \begin{itemize}
+\item Swap Insert \cite{2015-SPIRE-AdaptiveComputationOfTheSwapInsertCorrectionDistance-BarbayPerez}
+\item OPEN PROBLEM: other Edit distances
+  \end{itemize}
+  \end{enumerate}
+  \end{frame}
+
+\appendix
 \begin{frame}
   \frametitle{Similar work by the same Author}
 \nocite{2014-Algorithmica-EfficientFullyCompressedSequenceRepresentations-BarbayClaudeGagieNavarroNekrich}
